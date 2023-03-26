@@ -1,0 +1,757 @@
+/*------------------------------------------------*/
+/*-------------------[LAYOUT/FONTS]----------------------*/
+/*------------------------------------------------*/
+:root {
+  scroll-behavior: auto;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  color: $green;
+  font-family: $poiret;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+img {
+  border-radius: 5px;
+}
+
+//ADD ABSOLUTE FONT SIZES FOR DESKTOP
+h1 {
+  //@media only screen and (min-width: 1200px) {
+    //font-size: 36px;
+  //}
+}
+h2 {
+  //@media only screen and (min-width: 1200px) {
+    //font-size: 30px;
+  //}  
+}
+h3 {
+  //@media only screen and (min-width: 1200px) {
+    //font-size: 24px;
+  //}
+}
+
+body {
+	color: #000;
+}
+
+.poiret {
+  font-family: $poiret;
+}
+
+.fa-times-thin:before {
+  content: '\00d7';
+}
+
+.wysiwyg {
+  h1, h2, h3, h4, h5 {
+    margin-bottom: 15px;
+    font-family: $poiret;
+    font-weight: bold;
+  }
+  p {
+    line-height: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+  p:only-of-type {
+    margin-bottom: 0;
+  }
+  ul {
+    li {
+      margin-bottom: 10px;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.breakout {
+  margin:0 -100%; /* old browsers fallback */
+  margin:0 calc(50% - 50vw);
+}
+
+.social-links {
+  margin-bottom: 0;
+  .social-link {
+    height: 45px;
+    width: 45px;
+    background: $green;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .5s ease-in-out;
+    &:not(:last-of-type) {
+      margin-right: 15px;
+    }
+    img {
+      height: 30px;
+      width: 30px;
+    }
+    &:hover {
+      background: $brown;
+    }
+  }
+}
+
+section {
+  .subheader {
+    display: inherit;
+    text-align: center;
+    color: #000;
+    margin-bottom: 0;
+    text-transform: uppercase;    
+  }
+  .header {
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
+.push-to-left-edge {
+  .outer-wrapper {
+    @include media-breakpoint-up(lg) {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;  
+    }
+    img {
+      width: 100%;
+      max-height: 100%;
+    }
+  }
+}
+.push-to-right-edge {
+  .outer-wrapper {
+    img {
+      width: 100%;
+    }
+  }
+}
+.subpage-hero {
+  display: flex;
+  min-height: 500px;
+  background-size: cover !important;
+  background-repeat: no-repeat;
+  box-shadow: rgba(210,179,124,0.4) 0 0 0 100vh inset;
+  align-items: center;
+  justify-content: center;
+  border-bottom: solid 8px $brown;
+  .subheader {
+    font-style: italic;
+  }
+  .title {
+    font-weight: 400;
+    color: #f5f1dc;
+    font-family: $satisfy;
+    filter: drop-shadow(0 3px 6px rgba(0,0,0,.16));
+    @include media-breakpoint-up(lg) {
+      font-size: 5rem;
+    }
+  }
+}
+/*------------------------------------------------*/
+/*--------------------[LINKS/BUTTONS]---------------------*/
+/*------------------------------------------------*/
+
+a {
+  color: $green;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+.btn {
+  font-family: $roboto;
+  text-transform: uppercase;
+  border-radius: 0;
+  padding: .5rem 1.5rem !important;
+  white-space: normal;
+  transition: all .5s;
+  color: #fff;
+  &.green {
+    background-color: $green;
+    border: 0;
+    &:hover {
+      background-color: lighten($green, 10%) !important;
+      color: #fff;
+    }
+  }
+  &.white-outline {
+    background-color: transparent;
+    border: solid 3px #fff;
+    &:hover {
+      background-color: #fff !important;
+      color: $green;
+    }
+  }
+}
+
+/*------------------------------------------------*/
+/*--------------------[NAV]----------------------*/
+/*------------------------------------------------*/
+#headerLogo {
+  max-height: 150px;
+}
+header {
+  padding-top: 25px;
+  #wrapper-navbar {
+    margin-top: 25px;
+    background-color: $green;
+    .navbar {
+      padding: 0;
+      #main-menu {
+        a {
+          font-family: $roboto;
+          color: #fff;
+          text-transform: uppercase;
+          font-weight: 700;
+          padding: 1rem;
+          li:not(:nth-last-child(2)) {
+            a {
+              padding-right: 25px;
+            }
+          }
+        }
+        .dropdown-menu {
+          border-radius: 0 !important;
+          border: solid 1px $green;
+          padding: .5rem 1rem;
+          li {
+            margin: 0 auto;
+            text-align: center;
+            &:not(:last-of-type) {
+              border-bottom: solid 1px #dedede;
+            }
+            a {
+              padding-left: 0;
+              padding-right: 0;
+              color: #787878;
+              &:hover {
+                background-color: transparent;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*------------------------------------------------*/
+/*--------------------[MODAL NAV]----------------------*/
+/*------------------------------------------------*/
+#offcanvasNavigation {
+  #modalTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    #logo {
+      max-width: 262.5px;
+      margin-top: 30px;
+    }
+    i {
+      color: $green;
+      font-weight: bold;
+    }
+  }
+  #mobileMenu {
+    margin-top: 25px;
+    text-align: center;
+    a {
+      font-size: 1.25rem;
+      color: $green;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    .dropdown-menu {
+      position: relative !important;
+      transform: none !important;
+      text-align: center;
+    }
+  }
+}
+
+/*------------------------------------------------*/
+/*--------------------[FORMS]----------------------*/
+/*------------------------------------------------*/
+.nf-form-content .list-select-wrap .nf-field-element>div, .nf-form-content input:not([type=button]), .nf-form-content textarea {
+  border-color: $green !important;
+  background: #fff !important;
+}
+.nf-error.field-wrap .nf-field-element:after {
+  background: $green !important;
+}
+.nf-form-fields-required, .ninja-forms-req-symbol, .nf-error-msg, .nf-fu-progress {
+  display: none !important;
+}
+.nf-field-container {
+  @media only screen and (max-width: 800px) {
+    margin-bottom: 20px !important;
+  }
+}
+.nf-form-content {
+  max-width: 100%;
+}
+label {
+  color: #000 !important;
+  font-weight: normal !important;
+}
+form ::placeholder, form select {
+  color: #000 !important;
+}
+.nf-form-content input.ninja-forms-field {
+  height: auto !important;
+}
+.nf-form-content input[type=submit] {
+  background-color: $green !important;
+}
+/*------------------------------------------------*/
+/*--------------------[REUSABLE STYLES]----------------------*/
+/*------------------------------------------------*/
+.embed-container {
+    position: relative; 
+    padding-bottom: 56.25%;
+    overflow: hidden;
+    max-width: 100%;
+    height: auto;
+    iframe, object, embed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;  
+    }
+}
+/*------------------------------------------------*/
+/*--------------------[HOME]----------------------*/
+/*------------------------------------------------*/
+#homepage {
+  .hero {
+    display: flex;
+    position: relative;
+    @include media-breakpoint-up(lg) {
+      height: 750px;
+    }
+    .swirl {
+      z-index: 0;
+      position: absolute;
+      bottom: -115px;
+      left: 50px;
+    }
+    #left {
+      background-color: #F5F1DC;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center; 
+      border-bottom: solid 8px $brown; 
+      .inner-copy {
+        position: relative;
+        z-index: 2;
+        .subheader, .header {
+          text-align: left;
+        }
+      }      
+    }
+    #right {
+      z-index: 1;
+      @include media-breakpoint-up(lg) {
+        height: 750px;
+      }
+      #heroSliderOuterWrapper {
+        height: 100%;
+        position: relative;
+        #heroSlider {
+          height: 100%;
+          .slick-list {
+            height: 100%;
+            .slide {
+              div {
+                padding-top: 100%;
+                background-size: cover !important;
+                background-position: center center !important;
+              }
+            }
+          }
+        }
+        #heroDots {
+          position: absolute;
+          width: 100%;
+          bottom: 50px;
+          left: 50%;
+          transform: translateX(-50%);
+          .slick-dots {
+            list-style: none;
+            padding-left: 0;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 0;
+            position: relative;
+            li {
+              margin-right: 5px;
+              button {
+                width: 20px;
+                height: 20px;
+                text-indent: -9999px;
+                overflow: hidden;
+                border-radius: 10px;
+                border: 0;
+                background-color: #F5F1DC;
+              }
+            }
+            .slick-active {
+              button {
+                background-color: $brown;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  #sectionOne {
+    background-image: url('/wp-content/themes/env-hair-lounge/img/bronze_swirl.svg');
+    background-repeat: no-repeat;
+    background-position-y: -75px;
+    background-position-x: 105%;
+    .bucket {
+      position: relative;
+      .image-wrapper {
+        img {
+          width: 100%;
+        }
+      }
+      .title-wrapper {
+        position: absolute;
+        bottom: 0;
+        display: block;
+        background: rgba(110,131,48,.87);
+        width: 100%;
+        padding: 25px 15px;
+        .title {
+          margin-bottom: 0;
+          text-align: center;
+          color: #fff;
+          text-transform: uppercase;
+          font-weight: bold;
+        }
+      }
+    }
+  }  
+  #sectionTwo {
+    display: flex;
+    @include media-breakpoint-up(lg) {
+      min-height: 350px;
+    }
+    .left {
+      position: relative;
+      display: flex;
+      background-repeat: no-repeat !important;
+      flex: 0 0 50%;
+      box-shadow: rgba(245,241,220,.61) 0 0 0 100vh inset;
+      &:after {
+        height: 240px;
+        width: 635px;
+        content: "";
+        background: url('/wp-content/themes/env-hair-lounge/img/cream_swirl.svg');
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-repeat: no-repeat !important;
+      }
+      .inner-wrapper {
+        display: flex;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        h2 {
+          color: $dark-green;
+          margin-right: 25px;
+          margin-bottom: 0;
+        }
+      }
+    }
+    .right {
+      flex: 0 0 50%;
+      background: $brown;
+      align-items: center;
+      display: flex;
+      padding-left: 50px;
+    }
+  }
+  #sectionFour {
+    .inner {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      .visit-env {
+        display: flex;
+        align-items: center;
+        h1 {
+          font-weight: bold;
+          margin-bottom: 0;
+          margin-right: 25px;
+        }
+      }
+      .contact-info {
+        h3 {
+          color: #000;
+          font-weight: bold;
+          a {
+            color:#000;
+            &:hover {
+              color: #000;
+            }
+          }
+        }
+      }
+    }
+    .push-to-right-edge {
+      .outer-wrapper {
+        position: relative;
+        img {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+        .swirl {
+          position: absolute;
+          top: -25px;
+          left: -10px;
+          width: 50%;
+          transform: rotate(15deg);
+        }
+      }
+    }
+  }
+}
+
+/*------------------------------------------------*/
+/*--------------------[PRODUCTS & COLOR]---------------------*/
+/*------------------------------------------------*/
+#productsAndColor {
+  #sectionTwo {
+    .inner {
+      border: solid 3px $brown;
+    }
+  }
+}
+
+/*------------------------------------------------*/
+/*--------------------[SALON & WIG CENTER SERVICE MENU]---------------------*/
+/*------------------------------------------------*/
+#serviceMenu {
+  .nav-link {
+    color: $dark-green;
+    font-size: 1.5rem;
+    font-family: $satisfy;
+  }
+  .nav-link.active {
+    color: #fff;
+    background-color: $dark-green;
+  }
+}
+
+/*------------------------------------------------*/
+/*--------------------[CONTACT]---------------------*/
+/*------------------------------------------------*/
+#contact {
+  #sectionOne {
+    img {
+      filter: drop-shadow(0 3px 6px rgba(0,0,0,.16));
+    }
+  }
+}
+
+/*------------------------------------------------*/
+/*--------------------[SINGLE POST]---------------------*/
+/*------------------------------------------------*/
+.single {
+
+}
+
+/*------------------------------------------------*/
+/*--------------------[CPT ARCHIVE]---------------------*/
+/*------------------------------------------------*/
+
+
+/*------------------------------------------------*/
+/*--------------------[SINGLE CPT]---------------------*/
+/*------------------------------------------------*/
+
+
+/*------------------------------------------------*/
+/*--------------------[FAQ]---------------------*/
+/*------------------------------------------------*/
+#faq {
+  #sectionTwo {
+    background-color: #fff;
+    #faqAccordion {
+    .question-container {
+      padding-top: 25px;
+      padding-bottom: 25px;
+      border-bottom: solid 3px #E8E5DF;
+      .question {
+        display: flex;
+        align-items: center;
+        .plus-to-minus {
+          width: 50px;
+          height: 50px;
+          font-size: 1.5em;
+          position: relative;
+          span {
+            position: absolute;
+            transition: 300ms;
+            background: $green;
+            border-radius: 2px;
+            cursor: pointer;
+            &:first-child {
+              top: 25%;
+              bottom: 25%;
+              width: 10%;
+              left: 45%;  
+            }
+            &:last-child {
+              left: 25%;
+              right: 25%;
+              height: 10%;
+              top: 45%;  
+            }
+          }
+        }
+      }
+      .card-body {
+        padding-left: 50px;
+        padding-bottom: 0;
+        p {
+          margin-bottom: 0;
+          color: #000;
+        }
+      }
+      a[aria-expanded="true"] {
+        .plus-to-minus {
+          span {
+            transform: rotate(90deg);
+            &:last-child {
+              left: 50%;
+              right: 50%; 
+            }  
+          }
+        }
+      }
+    }
+    }
+  }
+}
+
+/*------------------------------------------------*/
+/*-------------------[FOOTER]---------------------*/
+/*------------------------------------------------*/
+#wrapperFooter {
+  background: $dark-green;
+  color: #fff;
+  padding: 25px 0;
+  background-image: url('/wp-content/themes/env-hair-lounge/img/footer_swirl.svg');
+  background-position-x: 102%;
+  background-repeat: no-repeat;
+  background-size: 735px;
+  background-position-y: 120%;
+  .inner {
+    border-bottom: solid 2px $green;
+    margin-bottom: 2rem;
+    .menu-footer-menu-container {
+      justify-content: flex-end;
+      display: flex;
+      #footerMenu {
+        display: inline-flex;
+        list-style: none;
+        a {
+          color: $cream;
+          font-weight: bold;
+          text-transform: uppercase;
+          text-decoration: none;
+        }
+      }
+    }    
+  }
+  .header {
+    color: $cream;
+    font-weight: bold;
+  }
+  .social-links {
+    margin-bottom: 1rem;
+  }
+  a {
+    color: $green;
+    text-decoration: underline;
+    &:hover {
+      color: #fff;
+    }
+  }
+  .copyright {
+    a {
+      color: #fff;
+    }
+  }
+  .attribution {
+    a {
+      color: #fff;
+    }
+  }
+  .hours-wrapper {
+    display: flex;
+    .days {
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      margin-right: 50px;
+    }
+  }
+}
+
+#scroll_totop {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $brown;
+  width: 36px;
+  height: 36px;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  z-index: 99;
+  border-radius: 18px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+  transition: box-shadow .25s cubic-bezier(0.165, 0.84, 0.44, 1);
+  @media only screen and (min-width: 40.0625em) {
+    right: 30px;
+    bottom: 30px;
+  }
+  &:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,.2);
+    svg {
+      .thb-arrow-head {
+        transform: translateX(0px);
+      }
+      .thb-arrow-line {
+        transform: translateX(0px) scale(1, 1);
+      }
+    }
+  }
+  svg {
+    transform: rotate(90deg);
+    .thb-arrow-head, .thb-arrow-line {
+      transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .thb-arrow-head {
+      transform: translateX(5px);
+    }
+    .thb-arrow-line {
+      transform: translateX(5px) scale(0, 1);
+    }
+  }
+}
