@@ -72,10 +72,20 @@ C15.719,5.329,15.982,5.593,15.982,5.92z"></path></svg>
 
 <?php wp_footer(); ?>
 
+<script>
+  AOS.init({
+  	duration: 1500,
+  	easing: 'ease-out-back',
+  	once: true,
+  	mirror: false
+  });
+</script>
+
 <?php if (is_page_template('templates/homepage.php')) : ?>
 <script>
 	jQuery(document).ready(function() {
   		jQuery('#heroSlider').slick({
+  			autoplay: true,
   			arrows: false,
   			dots: true,
   			appendDots: jQuery('#heroDots'),

@@ -15,20 +15,20 @@ get_header(); ?>
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12 position-relative">
-							<span class="h5 subheader"><?php echo $sectionOne['subheader']; ?></span>
-							<h1 class = "header mb-5"><?php echo $sectionOne['header']; ?></h1>
+							<span class="h5 subheader" data-aos="fade-up"><?php echo $sectionOne['subheader']; ?></span>
+							<h1 class = "header mb-5" data-aos="fade-down"><?php echo $sectionOne['header']; ?></h1>
 						</div><!-- .col-sm-12 -->
 					</div><!-- .row -->
 					<div class="row">
 						<?php while(have_rows('section_one')) : the_row(); ?>
-							<?php while(have_rows('buckets')) : the_row(); ?>
+							<?php $i = 1; while(have_rows('buckets')) : the_row(); ?>
 								<div class="col-lg-4">
-									<a href="<?php the_sub_field('link'); ?>">
-									<div class="bucket">
+									<a class = "d-flex h-100" href="<?php the_sub_field('link'); ?>">
+									<div class="bucket" data-aos = "<?php if ($i == 1) {echo 'zoom-in-right';} elseif ($i == 2) {echo 'zoom-in';} elseif ($i == 3) {echo 'zoom-in-left';} ?>">
 										<?php $img = get_sub_field('image');
 										if($img) { ?>
-										<div class="image-wrapper">
-											<?php echo wp_get_attachment_image( $img, 'full', "", array( "class" => "" ) ); ?>
+										<div class="image-wrapper h-100">
+											<?php echo wp_get_attachment_image( $img, 'full', "", array( "class" => "h-100" ) ); ?>
 										</div><!-- .image-wrapper -->
 										<?php } ?>
 										<div class="title-wrapper">
@@ -37,7 +37,7 @@ get_header(); ?>
 									</div><!-- .bucket -->
 									</a>
 								</div><!-- .col-lg-4 -->
-							<?php endwhile; ?>					
+							<?php $i++; endwhile; ?>					
 						<?php endwhile; ?>
 					</div><!-- .row -->
 				</div><!-- .container -->
@@ -47,12 +47,12 @@ get_header(); ?>
 			<section id="sectionTwo" class = "mb-5">
 				<div class="left" style = "background: url('<?php echo $sectionTwo['image']; ?>');">
 					<div class="inner-wrapper offset-left">
-						<h2 class = "dark-green fw-bold"><?php echo $sectionTwo['header']; ?></h2>
-						<a href = "<?php echo $sectionTwo['link']; ?>"><button role = "button" class = "green btn"><img src="<?php echo get_stylesheet_directory_uri() . '/img/chevron_right.svg'; ?>" alt=""></button></a>
+						<h2 class = "dark-green fw-bold" data-aos="fade-right"><?php echo $sectionTwo['header']; ?></h2>
+						<a href = "<?php echo $sectionTwo['link']; ?>"><button role = "button" class = "green btn" data-aos="zoom-in"><img src="<?php echo get_stylesheet_directory_uri() . '/img/chevron_right.svg'; ?>" alt=""></button></a>
 					</div><!-- .inner-wrapper -->
 				</div><!-- .left -->
 				<div class="right">
-					<div class="wysiwyg offset-right">
+					<div class="wysiwyg offset-right" data-aos="fade-left">
 						<?php echo $sectionTwo['copy']; ?>
 					</div><!-- .wysiwyg -->
 				</div><!-- .right -->
@@ -62,8 +62,14 @@ get_header(); ?>
 			<section id="sectionThree" class = "mb-5">
 				<div class="container">
 					<div class="row">
+						<div class="col-sm-12 position-relative">
+							<span class="h5 subheader" data-aos="fade-up"><?php echo $sectionThree['subheader']; ?></span>
+							<h1 class = "header mb-5" data-aos="fade-down"><?php echo $sectionThree['header']; ?></h1>
+						</div><!-- .col-sm-12 -->
+					</div><!-- .row -->
+					<div class="row">
 						<div class="col-sm-12">
-							INSTAGRAM
+							<div class = "text-center" data-aos="zoom-in">INSTAGRAM FEED</div>
 						</div><!-- .col-sm-12 -->
 					</div><!-- .row -->
 				</div><!-- .container -->
@@ -74,7 +80,7 @@ get_header(); ?>
 				<div class="container">
 					<div class="row align-items-center">
 						<div class="col-lg-5">
-							<div class="inner">
+							<div class="inner" data-aos="zoom-out-right">
 								<div class="visit-env">
 									<h1><?php echo $sectionFour['header']; ?></h1>
 									<?php $logo = get_field('logo', 'options'); ?>
@@ -89,12 +95,12 @@ get_header(); ?>
 							</div><!-- .inner -->
 						</div><!-- .col-lg-5 -->
 						<div class="col-lg-6 offset-lg-1 push-to-right-edge">
-							<div class="outer-wrapper">
+							<div class="outer-wrapper" data-aos="zoom-out-left">
 								<?php $img = $sectionFour['image'];
 								if($img) {
 								    echo wp_get_attachment_image( $img, 'full', "", array( "class" => "" ) );
 								} ?>
-								<img class = "swirl" src="<?php echo get_stylesheet_directory_uri() . '/img/silhouette_swirl.svg'; ?>" alt="">
+								<img class = "tilted-swirl" src="<?php echo get_stylesheet_directory_uri() . '/img/silhouette_swirl.svg'; ?>" alt="swirl graphic">
 							</div><!-- .outer-wrapper -->
 						</div><!-- .col-lg-6 -->
 					</div><!-- .row -->

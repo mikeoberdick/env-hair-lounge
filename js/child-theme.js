@@ -9300,6 +9300,17 @@
 	  //Push down the footer on short pages
 	  $(document).ready(function () {
 	    $('#js-heightControl').css('height', $(window).height() - $('html').height() + 'px');
+	  }); //Add padding to the top of the site to account for the fixed nav
+
+	  var navHeight = $('#headerTop').outerHeight();
+	  $(window).scroll(function () {
+	    var scroll = $(window).scrollTop();
+
+	    if (scroll >= navHeight) {
+	      $("#wrapper-navbar").addClass("sticky");
+	    } else if (scroll < navHeight) {
+	      $("#wrapper-navbar").removeClass("sticky");
+	    }
 	  }); //Move the hero content down based on the size of the absolutely positioned header
 
 	  var headerHeight = $('#wrapper-navbar').height();

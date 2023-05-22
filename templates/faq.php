@@ -14,8 +14,8 @@ defined( 'ABSPATH' ) || exit;
 				<div class="container">
 					<div class="row align-items-center">
 						<div class="col-sm-12">
-							<h2 class="header"><?php the_field('header'); ?></h2>
-							<div class="wysiwyg">
+							<h2 class="header" data-aos="fade-up"><?php the_field('header'); ?></h2>
+							<div class="wysiwyg" data-aos="fade-down">
 								<?php the_field('copy'); ?>
 							</div><!-- .wysiwyg -->
 						</div><!-- .col-sm-12 -->
@@ -27,11 +27,11 @@ defined( 'ABSPATH' ) || exit;
 				<div class="container">
 					<div class="row">
 						<div id = "questionContainer" class="col-sm-12">
-							<h2 class="header mb-0">Frequently Asked Questions</h2>
+							<h2 class="header mb-0" data-aos = "zoom-in">Frequently Asked Questions</h2>
 							<div class="w-100 accordion md-accordion" id="faqAccordion" role="tablist" aria-multiselectable="true">
 								<?php $i = 0; ?>
 								<?php while ( have_rows('questions_and_answers') ) : the_row(); ?>
-						        	<div class="question-container">
+						        	<div class="question-container" data-aos = "fade-in-up" data-aos-delay = "<?php $t = ($i *2); echo $t; ?>00">
 						        		<div class="card-wrapper" role="tab" id="<?php echo 'question-' . $i; ?>">
 				  							<a data-bs-toggle="collapse" data-bs-target="<?php echo '#collapse-question-' . $i; ?>" aria-expanded="<?php if ( $i == 0 ) {echo 'true';} else {echo 'false';}; ?>" aria-controls="<?php echo 'collapse-question-' . $i; ?>">
 				  								<div class = "question">

@@ -15614,6 +15614,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 img {
   border-radius: 5px;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.16));
 }
 
 body {
@@ -15731,6 +15732,64 @@ section .header {
   }
 }
 
+.tilted-swirl {
+  position: absolute;
+  top: -25px;
+  left: -10px;
+  width: 50% !important;
+  transform: rotate(15deg);
+}
+
+#faqAccordion .question-container {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  border-bottom: solid 3px #E8E5DF;
+}
+#faqAccordion .question-container .question {
+  display: flex;
+  align-items: center;
+}
+#faqAccordion .question-container .question .plus-to-minus {
+  width: 50px;
+  height: 50px;
+  font-size: 1.5em;
+  position: relative;
+}
+#faqAccordion .question-container .question .plus-to-minus span {
+  position: absolute;
+  transition: 300ms;
+  background: #6E8330;
+  border-radius: 2px;
+  cursor: pointer;
+}
+#faqAccordion .question-container .question .plus-to-minus span:first-child {
+  top: 25%;
+  bottom: 25%;
+  width: 10%;
+  left: 45%;
+}
+#faqAccordion .question-container .question .plus-to-minus span:last-child {
+  left: 25%;
+  right: 25%;
+  height: 10%;
+  top: 45%;
+}
+#faqAccordion .question-container .card-body {
+  padding-left: 50px;
+  padding-bottom: 0;
+}
+#faqAccordion .question-container .card-body p {
+  margin-bottom: 0;
+  color: #000;
+}
+#faqAccordion .question-container a[aria-expanded=true] .plus-to-minus span {
+  transform: rotate(90deg);
+}
+#faqAccordion .question-container a[aria-expanded=true] .plus-to-minus span:last-child {
+  left: 50%;
+  right: 50%;
+}
+
 /*------------------------------------------------*/
 /*--------------------[LINKS/BUTTONS]---------------------*/
 /*------------------------------------------------*/
@@ -15743,54 +15802,59 @@ a:hover {
 }
 
 .btn, .wpcf7 input[type=submit], .woocommerce-notices-wrapper .woocommerce-message a.button, .woocommerce-info a.button {
-  font-family: "Roboto", sans-serif;
+  font-family: "Poiret One", cursive;
+  letter-spacing: 0.15rem;
   text-transform: uppercase;
-  border-radius: 0;
+  border-radius: 5px;
   padding: 0.5rem 1.5rem !important;
   white-space: normal;
-  transition: all 0.5s;
-  color: #fff;
+  transition: all 0.75s ease-in-out;
+  font-weight: bold;
 }
 .btn.green, .wpcf7 input.green[type=submit], .woocommerce-notices-wrapper .woocommerce-message a.green.button, .woocommerce-info a.green.button {
+  border: solid 3px transparent !important;
   background-color: #6E8330;
-  border: 0;
-}
-.btn.green:hover, .wpcf7 input.green[type=submit]:hover, .woocommerce-notices-wrapper .woocommerce-message a.green.button:hover, .woocommerce-info a.green.button:hover {
-  background-color: #8da83e !important;
   color: #fff;
 }
-.btn.white-outline, .wpcf7 input.white-outline[type=submit], .woocommerce-notices-wrapper .woocommerce-message a.white-outline.button, .woocommerce-info a.white-outline.button {
-  background-color: transparent;
-  border: solid 3px #fff;
+.btn.green:hover, .wpcf7 input.green[type=submit]:hover, .woocommerce-notices-wrapper .woocommerce-message a.green.button:hover, .woocommerce-info a.green.button:hover {
+  border-color: #6E8330 !important;
+  background: transparent !important;
+  color: #6E8330 !important;
 }
-.btn.white-outline:hover, .wpcf7 input.white-outline[type=submit]:hover, .woocommerce-notices-wrapper .woocommerce-message a.white-outline.button:hover, .woocommerce-info a.white-outline.button:hover {
-  background-color: #fff !important;
+.btn.outline, .wpcf7 input.outline[type=submit], .woocommerce-notices-wrapper .woocommerce-message a.outline.button, .woocommerce-info a.outline.button {
+  background-color: transparent;
+  border: solid 3px #6E8330;
   color: #6E8330;
+}
+.btn.outline:hover, .wpcf7 input.outline[type=submit]:hover, .woocommerce-notices-wrapper .woocommerce-message a.outline.button:hover, .woocommerce-info a.outline.button:hover {
+  background-color: #6E8330 !important;
+  color: #fff;
 }
 
 /*------------------------------------------------*/
 /*--------------------[NAV]----------------------*/
 /*------------------------------------------------*/
-#headerLogo {
-  max-height: 150px;
-}
-
-header {
+header #headerTop #headerLogo {
+  height: 150px;
+  transition: all 0.5s;
   padding-top: 25px;
+  padding-bottom: 25px;
 }
 header #wrapper-navbar {
-  margin-top: 25px;
   background-color: #6E8330;
+  position: relative;
+  z-index: 3;
 }
 header #wrapper-navbar .navbar {
   padding: 0;
 }
 header #wrapper-navbar .navbar #main-menu a {
-  font-family: "Roboto", sans-serif;
   color: #fff;
   text-transform: uppercase;
   font-weight: 700;
   padding: 1rem;
+  font-family: "Poiret One", cursive;
+  letter-spacing: 0.15rem;
 }
 header #wrapper-navbar .navbar #main-menu a li:not(:nth-last-child(2)) a {
   padding-right: 25px;
@@ -15814,6 +15878,12 @@ header #wrapper-navbar .navbar #main-menu .dropdown-menu li a {
 }
 header #wrapper-navbar .navbar #main-menu .dropdown-menu li a:hover {
   background-color: transparent;
+}
+header #wrapper-navbar.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.29));
 }
 
 /*------------------------------------------------*/
@@ -15930,7 +16000,7 @@ form ::placeholder, form select {
   }
 }
 #homepage .hero .swirl {
-  z-index: 0;
+  z-index: 1;
   position: absolute;
   bottom: -115px;
   left: 50px;
@@ -16008,6 +16078,8 @@ form ::placeholder, form select {
   background-repeat: no-repeat;
   background-position-y: -75px;
   background-position-x: 105%;
+  position: relative;
+  z-index: 1;
 }
 #homepage #sectionOne .bucket {
   position: relative;
@@ -16104,19 +16176,15 @@ form ::placeholder, form select {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-#homepage #sectionFour .push-to-right-edge .outer-wrapper .swirl {
-  position: absolute;
-  top: -25px;
-  left: -10px;
-  width: 50%;
-  transform: rotate(15deg);
-}
 
 /*------------------------------------------------*/
 /*--------------------[PRODUCTS & COLOR]---------------------*/
 /*------------------------------------------------*/
 #productsAndColor #sectionTwo .inner {
   border: solid 3px #d2b37b;
+}
+#productsAndColor #sectionTwo .inner img {
+  filter: none;
 }
 
 /*------------------------------------------------*/
@@ -16133,75 +16201,62 @@ form ::placeholder, form select {
 }
 
 /*------------------------------------------------*/
-/*--------------------[CONTACT]---------------------*/
+/*--------------------[COMMUNITY CONNECTIONS]---------------------*/
 /*------------------------------------------------*/
-#contact #sectionOne img {
-  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.16));
+#communityConnections #sectionTwo img {
+  filter: none;
 }
 
 /*------------------------------------------------*/
-/*--------------------[SINGLE POST]---------------------*/
+/*--------------------[CONTACT]---------------------*/
 /*------------------------------------------------*/
+#contact #sectionOne .outer-wrapper {
+  overflow-x: hidden;
+}
+#contact #sectionOne .outer-wrapper .tilted-swirl {
+  top: -10px !important;
+  left: -135px !important;
+  width: 70% !important;
+}
+
 /*------------------------------------------------*/
-/*--------------------[CPT ARCHIVE]---------------------*/
+/*--------------------[STYLISTS]---------------------*/
 /*------------------------------------------------*/
-/*------------------------------------------------*/
-/*--------------------[SINGLE CPT]---------------------*/
-/*------------------------------------------------*/
+#ourStaff .staff-member .title {
+  color: #d2b37b;
+}
+#ourStaff .hr-holder {
+  height: 150px;
+  position: relative;
+}
+#ourStaff .hr-holder:before {
+  content: "";
+  position: absolute;
+  height: 5px;
+  background-color: #6E8330;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 5px;
+}
+#ourStaff .hr-holder img {
+  width: 100px;
+  background-color: #fff;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  top: 50%;
+  position: relative;
+  transform: translateY(-50%);
+  filter: none;
+  border: solid 1px #d2b37b;
+}
+
 /*------------------------------------------------*/
 /*--------------------[FAQ]---------------------*/
 /*------------------------------------------------*/
 #faq #sectionTwo {
   background-color: #fff;
-}
-#faq #sectionTwo #faqAccordion .question-container {
-  padding-top: 25px;
-  padding-bottom: 25px;
-  border-bottom: solid 3px #E8E5DF;
-}
-#faq #sectionTwo #faqAccordion .question-container .question {
-  display: flex;
-  align-items: center;
-}
-#faq #sectionTwo #faqAccordion .question-container .question .plus-to-minus {
-  width: 50px;
-  height: 50px;
-  font-size: 1.5em;
-  position: relative;
-}
-#faq #sectionTwo #faqAccordion .question-container .question .plus-to-minus span {
-  position: absolute;
-  transition: 300ms;
-  background: #6E8330;
-  border-radius: 2px;
-  cursor: pointer;
-}
-#faq #sectionTwo #faqAccordion .question-container .question .plus-to-minus span:first-child {
-  top: 25%;
-  bottom: 25%;
-  width: 10%;
-  left: 45%;
-}
-#faq #sectionTwo #faqAccordion .question-container .question .plus-to-minus span:last-child {
-  left: 25%;
-  right: 25%;
-  height: 10%;
-  top: 45%;
-}
-#faq #sectionTwo #faqAccordion .question-container .card-body {
-  padding-left: 50px;
-  padding-bottom: 0;
-}
-#faq #sectionTwo #faqAccordion .question-container .card-body p {
-  margin-bottom: 0;
-  color: #000;
-}
-#faq #sectionTwo #faqAccordion .question-container a[aria-expanded=true] .plus-to-minus span {
-  transform: rotate(90deg);
-}
-#faq #sectionTwo #faqAccordion .question-container a[aria-expanded=true] .plus-to-minus span:last-child {
-  left: 50%;
-  right: 50%;
 }
 
 /*------------------------------------------------*/

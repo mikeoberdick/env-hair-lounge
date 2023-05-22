@@ -1,30 +1,30 @@
 <?php
 
-//Testimonial CPT
-//add_action( 'init', 'testimonial_post_type', 0 );
+//Staff CPT
+add_action( 'init', 'staff_post_type', 0 );
 
-function testimonial_post_type() {
+function staff_post_type() {
 // Set UI labels
   $labels = array(
-    'name'                => 'Testimonials',
-    'singular_name'       => 'Testimonial',
-    'menu_name'           => 'Testimonials',
-    'parent_item_colon'   => 'Parent Testimonial',
-    'all_items'           => 'All Testimonials',
-    'view_item'           => 'View Testimonial',
-    'add_new_item'        => 'Add New Testimonial',
-    'add_new'             => 'Add Testimonial',
-    'edit_item'           => 'Edit Testimonial',
-    'update_item'         => 'Update Testimonial',
-    'search_items'        => 'Search Testimonials',
-    'not_found'           => 'No Testimonials Found',
-    'not_found_in_trash'  => 'No Testimonials Found in Trash',
+    'name'                => 'Staff',
+    'singular_name'       => 'Staff',
+    'menu_name'           => 'Staff',
+    'parent_item_colon'   => 'Parent Staff Member',
+    'all_items'           => 'All Staff',
+    'view_item'           => 'View Staff Member',
+    'add_new_item'        => 'Add New Staff',
+    'add_new'             => 'Add Staff',
+    'edit_item'           => 'Edit Staff Member',
+    'update_item'         => 'Update Staff Member',
+    'search_items'        => 'Search Staff',
+    'not_found'           => 'No Staff Members Found',
+    'not_found_in_trash'  => 'No Staff Members Found in Trash',
   );
   
 // Set other options
   $args = array(
-    'label'               => 'Testimonials',
-    'description'         => 'Neater Organizing testimonials.',
+    'label'               => 'Staff',
+    'description'         => 'EnV Hair Lounge Staff',
     'labels'              => $labels,
     'supports'            => array(
         'title',
@@ -44,11 +44,11 @@ function testimonial_post_type() {
     'exclude_from_search' => false,
     'publicly_queryable'  => true,
     'capability_type'     => 'page',
-    'menu_icon'           => 'dashicons-editor-quote'
+    'menu_icon'           => 'dashicons-admin-users'
   );
   
 //Register the CPT
-  register_post_type( 'testimonial', $args );
+  register_post_type( 'staff', $args );
 }
 
 //Create the [-----] Taxonomy

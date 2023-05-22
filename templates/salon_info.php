@@ -14,13 +14,13 @@ defined( 'ABSPATH' ) || exit;
 			<div id="sectionOne" class = "my-5">
 				<div class="container">
 					<div class="row align-items-center">
-						<div class="col-lg-6">
+						<div class="col-lg-6" data-aos="fade-in" data-aos-easing = "linear">
 							<h2 class="header"><?php echo $sectionOne['header']; ?></h2>
 							<div class="wysiwyg">
 								<?php echo $sectionOne['copy']; ?>
 							</div><!-- .wysiwyg -->
 						</div><!-- .col-lg-6 -->
-						<div class="col-lg-6">
+						<div class="col-lg-6" data-aos = "zoom-in-left">
 							<?php echo wp_get_attachment_image($sectionOne['image'], 'full'); ?>
 						</div><!-- .col-lg-6 -->
 					</div><!-- .row -->

@@ -14,6 +14,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 img {
   border-radius: 5px;
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,.16));
 }
 
 //ADD ABSOLUTE FONT SIZES FOR DESKTOP
@@ -154,6 +155,68 @@ section {
     }
   }
 }
+.tilted-swirl {
+  position: absolute;
+  top: -25px;
+  left: -10px;
+  width: 50% !important;
+  transform: rotate(15deg);
+}
+#faqAccordion {
+  .question-container {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-bottom: solid 3px #E8E5DF;
+    .question {
+      display: flex;
+      align-items: center;
+      .plus-to-minus {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5em;
+        position: relative;
+        span {
+          position: absolute;
+          transition: 300ms;
+          background: $green;
+          border-radius: 2px;
+          cursor: pointer;
+          &:first-child {
+            top: 25%;
+            bottom: 25%;
+            width: 10%;
+            left: 45%;  
+          }
+          &:last-child {
+            left: 25%;
+            right: 25%;
+            height: 10%;
+            top: 45%;  
+          }
+        }
+      }
+    }
+    .card-body {
+      padding-left: 50px;
+      padding-bottom: 0;
+      p {
+        margin-bottom: 0;
+        color: #000;
+      }
+    }
+    a[aria-expanded="true"] {
+      .plus-to-minus {
+        span {
+          transform: rotate(90deg);
+          &:last-child {
+            left: 50%;
+            right: 50%; 
+          }  
+        }
+      }
+    }
+  }
+}
 /*------------------------------------------------*/
 /*--------------------[LINKS/BUTTONS]---------------------*/
 /*------------------------------------------------*/
@@ -166,27 +229,31 @@ a {
   }
 }
 .btn {
-  font-family: $roboto;
+  font-family: $poiret;
+  letter-spacing: .15rem;
   text-transform: uppercase;
-  border-radius: 0;
+  border-radius: 5px;
   padding: .5rem 1.5rem !important;
   white-space: normal;
-  transition: all .5s;
-  color: #fff;
+  transition: all .75s ease-in-out;   
+  font-weight: bold;
   &.green {
+    border: solid 3px transparent !important;
     background-color: $green;
-    border: 0;
+    color: #fff; 
     &:hover {
-      background-color: lighten($green, 10%) !important;
-      color: #fff;
+      border-color: $green !important;
+      background: transparent !important;
+      color: $green !important;
     }
   }
-  &.white-outline {
+  &.outline {
     background-color: transparent;
-    border: solid 3px #fff;
+    border: solid 3px $green;
+    color: $green;
     &:hover {
-      background-color: #fff !important;
-      color: $green;
+      background-color: $green !important;
+      color: #fff;
     }
   }
 }
@@ -194,23 +261,29 @@ a {
 /*------------------------------------------------*/
 /*--------------------[NAV]----------------------*/
 /*------------------------------------------------*/
-#headerLogo {
-  max-height: 150px;
-}
 header {
-  padding-top: 25px;
+  #headerTop {
+    #headerLogo {
+      height: 150px;
+      transition: all .5s;
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+  }
   #wrapper-navbar {
-    margin-top: 25px;
     background-color: $green;
+    position: relative;
+    z-index: 3;
     .navbar {
       padding: 0;
       #main-menu {
         a {
-          font-family: $roboto;
           color: #fff;
           text-transform: uppercase;
           font-weight: 700;
           padding: 1rem;
+          font-family: $poiret;
+          letter-spacing: .15rem;
           li:not(:nth-last-child(2)) {
             a {
               padding-right: 25px;
@@ -238,6 +311,12 @@ header {
           }
         }
       }
+    }
+    &.sticky {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.29));
     }
   }
 }
@@ -338,7 +417,7 @@ form ::placeholder, form select {
       height: 750px;
     }
     .swirl {
-      z-index: 0;
+      z-index: 1;
       position: absolute;
       bottom: -115px;
       left: 50px;
@@ -419,6 +498,8 @@ form ::placeholder, form select {
     background-repeat: no-repeat;
     background-position-y: -75px;
     background-position-x: 105%;
+    position: relative;
+    z-index: 1;
     .bucket {
       position: relative;
       .image-wrapper {
@@ -518,13 +599,6 @@ form ::placeholder, form select {
           border-top-right-radius: 0;
           border-bottom-right-radius: 0;
         }
-        .swirl {
-          position: absolute;
-          top: -25px;
-          left: -10px;
-          width: 50%;
-          transform: rotate(15deg);
-        }
       }
     }
   }
@@ -537,6 +611,9 @@ form ::placeholder, form select {
   #sectionTwo {
     .inner {
       border: solid 3px $brown;
+      img {
+        filter: none;
+      }
     }
   }
 }
@@ -555,33 +632,68 @@ form ::placeholder, form select {
     background-color: $dark-green;
   }
 }
-
+/*------------------------------------------------*/
+/*--------------------[COMMUNITY CONNECTIONS]---------------------*/
+/*------------------------------------------------*/
+#communityConnections {
+  #sectionTwo {
+    img {
+      filter: none;
+    }
+  }
+}
 /*------------------------------------------------*/
 /*--------------------[CONTACT]---------------------*/
 /*------------------------------------------------*/
 #contact {
   #sectionOne {
-    img {
-      filter: drop-shadow(0 3px 6px rgba(0,0,0,.16));
+    .outer-wrapper {
+      overflow-x: hidden;
+      .tilted-swirl {
+        top: -10px !important;
+        left: -135px !important;
+        width: 70% !important;
+      }
     }
   }
 }
 
 /*------------------------------------------------*/
-/*--------------------[SINGLE POST]---------------------*/
+/*--------------------[STYLISTS]---------------------*/
 /*------------------------------------------------*/
-.single {
-
+#ourStaff {
+  .staff-member {
+    .title {
+      color: $brown;
+    }
+  }
+  .hr-holder {
+    height: 150px;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      height: 5px;
+      background-color: $green;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 5px;
+    }
+    img {
+      width: 100px;
+      background-color: #fff;
+      text-align: center;
+      margin: 0 auto;
+      display: block;
+      top: 50%;
+      position: relative;
+      transform: translateY(-50%);
+      filter: none;
+      border: solid 1px $brown;
+    }
+  }
 }
-
-/*------------------------------------------------*/
-/*--------------------[CPT ARCHIVE]---------------------*/
-/*------------------------------------------------*/
-
-
-/*------------------------------------------------*/
-/*--------------------[SINGLE CPT]---------------------*/
-/*------------------------------------------------*/
 
 
 /*------------------------------------------------*/
@@ -590,61 +702,6 @@ form ::placeholder, form select {
 #faq {
   #sectionTwo {
     background-color: #fff;
-    #faqAccordion {
-    .question-container {
-      padding-top: 25px;
-      padding-bottom: 25px;
-      border-bottom: solid 3px #E8E5DF;
-      .question {
-        display: flex;
-        align-items: center;
-        .plus-to-minus {
-          width: 50px;
-          height: 50px;
-          font-size: 1.5em;
-          position: relative;
-          span {
-            position: absolute;
-            transition: 300ms;
-            background: $green;
-            border-radius: 2px;
-            cursor: pointer;
-            &:first-child {
-              top: 25%;
-              bottom: 25%;
-              width: 10%;
-              left: 45%;  
-            }
-            &:last-child {
-              left: 25%;
-              right: 25%;
-              height: 10%;
-              top: 45%;  
-            }
-          }
-        }
-      }
-      .card-body {
-        padding-left: 50px;
-        padding-bottom: 0;
-        p {
-          margin-bottom: 0;
-          color: #000;
-        }
-      }
-      a[aria-expanded="true"] {
-        .plus-to-minus {
-          span {
-            transform: rotate(90deg);
-            &:last-child {
-              left: 50%;
-              right: 50%; 
-            }  
-          }
-        }
-      }
-    }
-    }
   }
 }
 

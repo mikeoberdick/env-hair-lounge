@@ -22,9 +22,9 @@ if (isset($hero['header'])) {
 		<div class="row">
 			<div id = "left" class="col-lg-6">
 				<div class="inner-copy offset-left">
-					<span class="h5 subheader"><?php echo $hero['subheader']; ?></span>
-					<h1 class = "header mb-3"><?php echo $hero['header']; ?></h1>
-					<a href = "<?php echo $hero['button_link']; ?>"><button role = "button" class = "btn green"><?php echo $hero["button_text"]; ?></button></a>	
+					<span class="h5 subheader" data-aos="fade-up"><?php echo $hero['subheader']; ?></span>
+					<h1 class = "header mb-3" data-aos="fade-down"><?php echo $hero['header']; ?></h1>
+					<a href = "<?php echo $hero['button_link']; ?>"><button role = "button" class = "btn green" data-aos="zoom-in"><?php echo $hero["button_text"]; ?></button></a>	
 				</div><!-- .inner-copy -->	
 			</div><!-- .col-lg-6 -->
 			<div id = "right" class="col-lg-6 px-0">
@@ -55,7 +55,7 @@ if (isset($hero['header'])) {
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="content-container text-center">
-					<h1 class = "title mb-0"><?php echo $title; ?></h1>
+					<h1 class = "title mb-0" data-aos="fade-down"><?php echo $title; ?></h1>
 				</div><!-- .content-container -->
 			</div><!-- .col-sm-12 -->
 		</div><!-- .row -->

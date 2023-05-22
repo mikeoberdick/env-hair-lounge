@@ -52,7 +52,7 @@ defined( 'ABSPATH' ) || exit; ?>
 <a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e( 'Skip to content', 'understrap' ); ?></a>
 
 <header>
-	<div class="container">
+	<div id = "headerTop" class="container">
 		<div class="row align-items-center">
 			<div class="col-lg-4 d-none d-lg-flex">
 				<?php get_template_part( 'snippets/social-links'); ?>
@@ -67,6 +67,7 @@ defined( 'ABSPATH' ) || exit; ?>
 				</button>
 			</div><!-- .col-lg-4 -->
 			<div class="col-lg-4 justify-content-end d-none d-lg-flex">
+				<a href = "<?php the_field('online_shop_link', 'options'); ?>"><button role = "button" class = "btn green me-3">Shop</button></a>
 				<a href = "<?php the_field('online_booking_link', 'options'); ?>"><button role = "button" class = "btn green">Book Online</button></a>
 			</div><!-- .col-lg-4 -->
 		</div><!-- .row -->
